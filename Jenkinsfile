@@ -2,16 +2,16 @@ pipeline {
     agent any
         stages {
             stage('one') {
-                steps{
+                steps {
                     echo 'Hi This is my first script'
                 }
             }
-            stage ('two') {
+            stage('two') {
                 steps {
-                    input ('Do youb want to proceed?')
+                    input('Do youb want to proceed?')
                 }
             }
-            stage ('three') {
+            stage('three') {
                 when {
                     not {
                         branch "master"
@@ -22,8 +22,8 @@ pipeline {
                     echo "Hello"
                 }
             
-            stage ('four') {
-                parllel {
+            stage('four') {
+                parallel {
                     stage("unit Test") {
                         steps {
                             echo "Running the Unit Test"
