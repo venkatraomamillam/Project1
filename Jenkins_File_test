@@ -1,11 +1,16 @@
 pipeline {
    agent any
-
+   environment{
+       PATH="/usr/local/src/apache-maven/bin:$PATH"
    stages {
       stage('git clone') {
          steps {
             git credentialsId: 'venkat', url: 'https://github.com/venkatraomamillam/Project1.git'
          }
       }
+   stage('Maven Build') {
+         steps {
+            sh "mvn clean package"
+         }   
    }
 }
