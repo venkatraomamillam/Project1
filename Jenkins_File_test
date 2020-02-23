@@ -1,0 +1,11 @@
+pipeline {
+   agent any
+
+   stages {
+      stage('git clone') {
+         steps {
+            git credentialsId: 'venkat', url: 'https://github.com/venkatraomamillam/Project1.git'
+         }
+      }
+   }
+}
